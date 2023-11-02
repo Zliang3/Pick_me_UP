@@ -1,5 +1,9 @@
 from django.shortcuts import render
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
+
+@api_view(['GET'])
 def getRoutes(request):
     routes = [
         {
@@ -17,7 +21,7 @@ def getRoutes(request):
         {
             'Endpoint': '/notes/id/update/',
             'method': 'PUT',
-            'body': {'body': ""}|,
+            'body': {'body': ""},
             'description': 'Creates an existing note with data sent in'
         },
         {
@@ -27,3 +31,4 @@ def getRoutes(request):
             'description': 'Deletes an exiting note'
         },
     ]
+    return Response(routes)
